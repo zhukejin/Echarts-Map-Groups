@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>screen</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style type="text/css">
+        * {
+            font-family: 微软雅黑;
+            color: #fff;
+        }
+        body {
+            background-color: #1b1b1b;
+        }
+       .frame {
+        height: 500px;
+        border: 0px solid red;
+       }
+       .top {
+        font-size: 3em;
+       }
+       .middle {
+        font-size: 9em;
+       }
+       .bottom {
+        font-size: 2em;
+       }
+       .headBox {
+        padding: 30px;
+       }
+       .box {
+        font-size: 2em;
+       }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row topframe">
+        <div class="col-lg-5 frame">
+            <div class="headBox"> 
+                <p class="text-center top">最近1分钟我们网站上有</p>
+                <p class="text-center middle" id="uv">0</p>
+                <p class="text-center bottom">位活跃用户</p>
+            </div>
+            <div class="box">
+                <p class="text-center">今日最高: <strong id="maxuv">0</strong> (发生时间： <span id="maxTime">00:00</span>)</p>
+            </div>
+        </div>
+        <div class="col-lg-7 frame" id="pvspline"></div>
+    </div>
+
+    <div class="row bottomframe">
+        <div class="col-lg-5 frame map" id="map"></div>
+        <div class="col-lg-7 frame" id="uvspline"></div>
+    </div>
+</div>
+<script data-main="js/main" src="js/require.js?"></script>
+</body>
+</html>
