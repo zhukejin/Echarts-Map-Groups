@@ -8,12 +8,15 @@ define(["map", "spline", "ajax"], function (map, spline, ajax){
      * @return {[type]} [description]
      */
     (function () {
-        var screenY = window.screen.height;
-        var Els = document.querySelectorAll(".frame");
-        Array.prototype.slice.call(Els).forEach(function (value){
-            value.style.height = screenY / 2 + "px";
+        Array.prototype.slice.call(document.querySelectorAll(".hole")).forEach(function (value){
+            value.style.height = window.screen.height + "px";
         });
-
+        Array.prototype.slice.call(document.querySelectorAll(".spline")).forEach(function (value){
+            value.style.height = window.screen.height / 4 + "px";
+        });
+        Array.prototype.slice.call(document.querySelectorAll(".head")).forEach(function (value){
+            value.style.height = window.screen.height / 2 + "px";
+        });
         if (!window.localStorage) {
             alert("您的浏览器太落后了~！部分功能可能失效");
         }
@@ -26,13 +29,11 @@ define(["map", "spline", "ajax"], function (map, spline, ajax){
             data:"",
             type: "post",
             success:function(data){
-                console.log(data)
                 // 存储html5 本地缓存
                 if (sessionStorage.getItem("Max")) {
                     var date = new Date();
                     var today = date.getFullYear() + "0" + (parseInt(date.getMonth()) + 1 ) + "0" + date.getDate();
-
-                    if (data.uvMax >= sessionStorage.getItem("Max") && data.uvMaxTime > today) {
+                    if (data.uvMax >= sessionStorage.getItem("Max") || data.uvMaxTime > today) {
                         sessionStorage.setItem("Max", data.uvMax);
                         sessionStorage.setItem("MaxTime", data.uvMaxTime);
                     }

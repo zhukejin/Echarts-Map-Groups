@@ -12,10 +12,6 @@
         body {
             background-color: #1b1b1b;
         }
-       .frame {
-        height: 500px;
-        border: 0px solid red;
-       }
        .top {
         font-size: 3em;
        }
@@ -35,9 +31,10 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row topframe">
-        <div class="col-lg-5 frame">
-            <div class="headBox"> 
+    <div class="row hole">
+        <div class="col-lg-5 hole">
+          <div class="head">
+            <div class="headBox">
                 <p class="text-center top">最近1分钟我们网站上有</p>
                 <p class="text-center middle" id="uv">0</p>
                 <p class="text-center bottom">位活跃用户</p>
@@ -45,13 +42,15 @@
             <div class="box">
                 <p class="text-center">今日最高: <strong id="maxuv">0</strong> (发生时间： <span id="maxTime">00:00</span>)</p>
             </div>
+          </div>
+            
+          <div class="spline" id="pvspline"></div>
+          <div class="spline" id="uvspline"></div>
+          
         </div>
-        <div class="col-lg-7 frame" id="pvspline"></div>
-    </div>
-
-    <div class="row bottomframe">
-        <div class="col-lg-5 frame map" id="map"></div>
-        <div class="col-lg-7 frame" id="uvspline"></div>
+        <div class="col-lg-7 hole" id="map">
+            
+        </div>
     </div>
 </div>
 <script data-main="js/main" src="js/require.js?"></script>

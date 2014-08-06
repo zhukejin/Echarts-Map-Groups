@@ -18,7 +18,7 @@ define(['echarts/chart/map'],function (){
             {name:'日照', geoCoord:[119.46, 35.42]},
             {name:'胶南', geoCoord:[119.97, 35.88]},
             {name:'南通', geoCoord:[121.05, 32.08]},
-            {name:'拉萨', geoCoord:[91.11, 29.97]},
+            //{name:'拉萨', geoCoord:[91.11, 29.97]},
             {name:'云浮', geoCoord:[112.02, 22.93]},
             {name:'梅州', geoCoord:[116.1, 24.55]},
             {name:'文登', geoCoord:[122.05, 37.2]},
@@ -205,29 +205,18 @@ define(['echarts/chart/map'],function (){
             ],
             title : {
                 text: '',
-                x:'center',
+                x:'left',
                 textStyle : {
                     color: '#fff'
                 }
             },
             legend: {
+                padding: [100, 0,0,15],
                 orient: 'vertical',
                 x:'left',
                 data:['多','中','少'],
                 textStyle : {
                     color: '#fff'
-                }
-            },
-            toolbox: {
-                show : false,
-                orient : 'vertical',
-                x: 'right',
-                y: 'center',
-                feature : {
-                    mark : {show: true},
-                    dataView : {show: true, readOnly: false},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
                 }
             },
             series : [
@@ -254,7 +243,7 @@ define(['echarts/chart/map'],function (){
                         data : (function(){
                             var data = [];
                             var len = 3000;
-                            var geoCoord
+                            var geoCoord;
                             while(len--) {
                                 geoCoord = placeList[len % placeList.length].geoCoord;
                                 data.push({
@@ -318,9 +307,14 @@ define(['echarts/chart/map'],function (){
                             var data = [];
                             var len = placeList.length;
                             while(len--) {
+                                geoCoord = placeList[len % placeList.length].geoCoord;
                                 data.push({
                                     name : placeList[len].name,
-                                    value : 90
+                                    value : 90,
+                                    geoCoord : [
+                                        geoCoord[0] + Math.random() * 5 * -1,
+                                        geoCoord[1] + Math.random() * 3 * -1
+                                    ]
                                 })
                             }
                             return data;

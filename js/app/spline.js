@@ -102,7 +102,8 @@ define(['echarts', 'echarts/chart/line'],function (ec){
                         effect : {
                             show: true,
                             color : "rgba(16,198,199,58)",
-                            shadowBlur : 0 
+                            shadowBlur : 0,
+                            scaleSize : 1
                         }
                     },
                     markLine : {

@@ -3,6 +3,7 @@
  * @type {Object}
  */
 require.config({
+    urlArgs: "bust=" +  (new Date()).getTime(),
     paths: {
         "init": "app/init",
         "echarts" : "app/echarts",
@@ -36,7 +37,7 @@ require(["init", "spline", "ajax"], function (init, spline, ajax) {
                 var date = new Date();
                 var today = date.getFullYear() + "0" + (parseInt(date.getMonth()) + 1 ) + "0" + date.getDate();
 
-                if (data.uvMax >= sessionStorage.getItem("Max") && data.uvMaxTime > today) {
+                if (data.uvMax >= sessionStorage.getItem("Max") || data.uvMaxTime > today) {
                     sessionStorage.setItem("Max", data.uvMax);
                     sessionStorage.setItem("MaxTime", data.uvMaxTime);
                 }
@@ -50,7 +51,7 @@ require(["init", "spline", "ajax"], function (init, spline, ajax) {
                 document.querySelector("#maxuv").textContent = sessionStorage.getItem("Max");
                 document.querySelector("#maxTime").textContent = sessionStorage.getItem("MaxTime");
             }
-            
+
             document.querySelector("#uv").textContent = data.datauv[data.datauv.length -1];
             var pvdata = {
                 name : "浏览量PV(最近15分钟)",
