@@ -7,7 +7,7 @@ Echarts-Demo
 >
 >也有可能是自身原因没有找到解决办法。
 >
->Demo地址 ： [http://demo.zhukejin.com/screen/](http://demo.zhukejin.com/screen/)
+>Demo地址 ： [http://demo.zhukejin.com/7-screen/](http://demo.zhukejin.com/7-screen/)
 
 数据是随机生成的，全是假的，时间是获取的当前时间的前15分钟，因为服务器的原因，所以时间不准确。
 
